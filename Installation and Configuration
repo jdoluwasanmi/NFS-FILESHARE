@@ -1,0 +1,13 @@
+yum install nfs* -y
+systemctl enable rpcbind nfs-server nfs-lock nfs-idmap
+systemctl start rpcbind nfs-server nfs-lock nfs-idmap
+vim /etc/exports
+/home/johnshare 192.168.0.0/24(rw,sync,no_root_squash,no_all_squash)
+mkdir /home/johnshare
+chmod 755 /home/johnshare
+firewall-cmd --permanent --add-port=111/tcp --zone=public
+firewall-cmd --permanent --add-service=nfs --zone=public
+firewall-cmd --reload
+systemctl restart nfs-server
+
+Install and make directory on client side as well
