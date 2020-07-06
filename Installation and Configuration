@@ -10,4 +10,4 @@ firewall-cmd --permanent --add-service=nfs --zone=public
 firewall-cmd --reload
 systemctl restart nfs-server
 
-Install and make directory on client side as well
+Install and create directory on client side as well
