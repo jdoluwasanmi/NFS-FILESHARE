@@ -11,3 +11,11 @@ firewall-cmd --reload
 systemctl restart nfs-server
 
 Install and create directory on client side as well
+
+
+
+
+
+mount -t nfs 192.168.0.38:/mnt/rhel7/ /mnt/rhelfile/
+
+vim /etc/fstab
